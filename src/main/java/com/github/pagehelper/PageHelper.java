@@ -44,10 +44,25 @@ import java.util.Properties;
  *
  * @author liuzh/abel533/isea533
  * @version 5.0.0
+ * linj个人理解：
+ * 1、PageHelper 继承 PageMethod 类， PageMethod 类用于存放基本的分页方法
+ * 2、PageHelper 实现 Dialect 接口，Dialect 接口是用于处理 不同数据库的数据方言
+ *
  */
 public class PageHelper extends PageMethod implements Dialect {
+    /**
+     *  linj个人理解：
+     *  PageHelper 中的两个引用对象：
+     *  1、PageParams 分页的参数对象。
+     *  2、PageAutoDialect 基础方言信息。
+     */
     private PageParams pageParams;
     private PageAutoDialect autoDialect;
+
+    /**
+     *  linj个人理解：
+     *  以下方法都是实现 Dialect 接口中的方法
+     */
 
     @Override
     public boolean skip(MappedStatement ms, Object parameterObject, RowBounds rowBounds) {
